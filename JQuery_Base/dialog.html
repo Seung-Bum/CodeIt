@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- JQuery cdn -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        function crayBtn0()
+        {
+            $('#dialog-message').dialog({
+                modal: true, 
+                buttons: {
+                    "PHP": function() { $(this).dialog('close'); },
+                    "ASP": function() { $(this).dialog('close'); },
+                    "JSP": function() { $(this).dialog('close'); }
+                }
+            });
+        }
+        function crayBtn1()
+        {
+            $('#dialog-message-1').dialog({
+                modal: true, 
+                buttons: {
+                    "취소": function() { $(this).dialog('close'); }
+                }
+            });
+        }
+        function crayBtn2()
+        {
+            $('#dialog-message-2').dialog({
+                modal: true, 
+                buttons: {
+                    "취소": function() { $(this).dialog('close'); }
+                }
+            });
+        }
+        function crayBtn3()
+        {
+            $('#dialog-message-3').dialog({
+                modal: true, 
+                buttons: {
+                    "취소": function() { $('this').dialog('close'); }
+                }
+            });
+        }
+
+        $(function(){
+            //$("#dialog").dialog();
+            $("#dialog").dialog({
+                autoOpen:false,     // 자동으로 열리지않게
+                position:[100,200], // x,y  값을 지정
+                                    // "center", "left", "right", "top", "bottom"
+                modal:true,         // 모달대화상자
+                resizable:false,    // 크기 조절 못하게
+
+                buttons:{
+                    "확인" : function()
+                    {
+                        $(this).dialog("close");
+                    },
+                    "취소" : function()
+                    {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+
+            //창 열기 버튼을 클릭했을경우
+            $("#btn").on("click",function(){
+                $("#dialog").dialog("open"); // 다이얼로그창 오픈                
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div id="dialog-message" title="선택하세요." style='display:none'>
+        다음중 가장 많이 쓰는 웹언어는?<br/>
+        PHP, ASP, JSP
+        <span style='color:rgba(211, 0, 0, 0.811)'>PHP</span>, 
+        <span style='color:rgba(185, 51, 51, 0.416)'>ASP</span>, 
+        <span style='color:rgba(108, 0, 0, 0.712)'>JSP</span>
+    </div>
+    <button class="ui-button ui-widget ui-corner-all" onclick="crayBtn0()">Window Open</button>
+
+    <div id="dialog-message-1" title="선택하세요." style='display:none'>
+        .. 내용
+    </div>
+    <button class="ui-button ui-widget ui-corner-all" onclick="crayBtn1()">Window Open1</button>
+
+    <div id="dialog-message-2" title="선택하세요." style='display:none'>
+        .. 내용
+    </div>
+    <button class="ui-button ui-widget ui-corner-all" onclick="crayBtn2()">Window Open2</button>
+
+    <div id="dialog-message-3" title="선택하세요." style='display:none'>
+        .. 내용
+    </div>
+    <button class="ui-button ui-widget ui-corner-all" onclick="crayBtn3()">Window Open3</button>
+
+    <input type="button" id="btn" value="Dialog Open"/>
+    <div id="dialog" title="공지사항">
+        java 초급<br>
+        java 중급<br>
+        java 고급<br>
+        강좌가 새롭게 업로드되었습니다.
+    </div>
+</body>
+</html>
