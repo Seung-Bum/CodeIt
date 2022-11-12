@@ -9,25 +9,26 @@ element2.innerText = RANDOM_NUM2
 
 const form = document.querySelector(".js-form")
 
-function init() {
-    form.addEventListener("submit", e => {
 
-        alert("11")
-    
-        if(result === Number(input.value)) {
+function init() {
+
+    let result = RANDOM_NUM1 * RANDOM_NUM2
+
+    form.addEventListener("submit", e => {
+        
+        let checkNum = document.getElementById('checkNum').value
+
+        if(result === Number(checkNum)) {
             alert("정답!") 
-            firstNum = RANDOM_NUM1
-            secondNum = RANDOM_NUM2
-            result = firstNum * secondNum
-            word.textContent = `${firstNum} 곱하기 ${secondNum} 는?`
-            input.value = ""
-            input.focus()
+            checkNum.innerText = ""
+            checkNum.focus()
         } else {
-            alert("땡!")
-            input.value = ""
-            input.focus()
+            alert(`${RANDOM_NUM1} 곱하기 ${RANDOM_NUM2} 는?
+다시 생각해주세요`)
+            checkNum.innerText = ""
+            checkNum.focus()
         }
-    })
+    }, false)
 }
 
 init()
