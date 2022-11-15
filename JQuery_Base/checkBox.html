@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JQuery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" 
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" 
+        crossorigin="anonymous">
+    </script>
+    <script>
+
+        window.onload = function() {
+                    /* Checkbox change event */
+        $('input[name="chckbxColors"]').change(function() {
+
+            var value = $(this).val();              // value
+            var checked = $(this).prop('checked');  // checked 상태 (true, false)
+            var $label = $(this).next();            // find a label element 누른것은 input 이고 그다음 요소인 label을 next로 가져옴
+
+            // checked ? $label.css('background-color', value) : $label.css('background-color', 'white');
+            if(checked)
+                $label.css('background-color', value);      // label의 배경색을 바꾼다.
+            else
+                $label.css('background-color', 'white');    // label의 배경색을 초기화 한다.
+            });
+        }
+
+    </script>
+    <title>Document</title>
+
+</head>
+<body>
+
+    <input type="checkbox" id="chckbxPink" name="chckbxColors" value="#ffc0cb" checked disabled><label for="chckbxPink">PINK</label>
+    <input type="checkbox" id="chckbxRed" name="chckbxColors" value="#ff0000" checked><label for="chckbxRed">RED</label>
+    <input type="checkbox" id="chckbxOrange" name="chckbxColors" value="#ffa500" disabled><label for="chckbxOrange">ORANGE</label>
+    <input type="checkbox" id="chckbxYellow" name="chckbxColors" value="#ffff00"><label for="chckbxYellow">YELLOW</label>
+    <input type="checkbox" id="chckbxGreen" name="chckbxColors" value="#008000"><label for="chckbxGreen">GREEN</label>
+    <input type="checkbox" id="chckbxCyan" name="chckbxColors" value="#00ffff"><label for="chckbxCyan">CYAN</label>
+
+
+</body>
+    <script>
+        /* ID로 찾기 */
+        var b1 = $('#chckbxPink').prop('checked');   // jQuery 1.6 이상 (jQuery 1.6 미만에는 prop()가 없음, checked, selected, disabled는 꼭 prop()를 써야함)
+        console.log("b1 " + b1);
+        var b2 = $('#chckbxPink').attr('checked');   // jQuery 1.6 미만 (jQuery 1.6 이상에서는 checked, undefined로 return됨)
+        console.log("b2 " + b2);
+        var b3 = $('#chckbxPink').is(':checked');
+        console.log("b3 " + b3);
+
+        /* CSS attribute Selector로 찾기 */
+        var b4 = $('input[id="chckbxRed"]').prop('checked');
+        console.log("b4 " + b4);
+        var b5 = $('input[id="chckbxRed"]').attr('checked');
+        console.log("b5 " + b5);
+        var b6 = $('input[id="chckbxRed"]').is('checked');
+        console.log("b6 " + b6);
+
+        /* PINK (Checkbox 1개) Checked 설정 */
+        $('#chckbxGreen').prop('checked', true);
+        
+        /* PINK (Checkbox 1개) Checked 해제 */
+        $('#chckbxRed').prop('checked', false);
+        
+        /* PINK (Checkbox 1개) 상태 반전 */
+        //$('#chckbxYellow').prop('checked', !$('#chckbxYellow').prop('checked'));
+
+    </script>
+
+</html>
