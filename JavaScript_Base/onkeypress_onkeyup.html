@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>onkeyup</h2>
+    <input type="password" onkeyup="enterkey();" type="text" ><br>
+    <!-- onkeyup - 키를 떼었을 때 발생 -->
+    <!-- 패스워드 부분에 focus에 있을시 enter를 누르면 enterkey() 함수 실행 --> 
+    
+    <h2>onkeydown</h2>
+    <input type='text' id='input1' onkeydown='mykeydown()'/><br><br>
+    <!-- 해당 요소 선택하고 키를 누르면 -->
+    <!-- onKeyPress, onkeydown은 같다고함 -->
+
+    <form name='key_form' id='form1'>
+        <input type='text' placeholder="입력해주세요"/><br>
+        KeyCode: <input type='text' name='key_code' /><br>
+        CharCode: <input type='text' name='char_code' /><br>
+    </form>
+
+</body>
+<script>
+    function enterkey() {
+        if (window.event.keyCode == 13) {
+
+             // 엔터키가 눌렸을 때 실행할 내용
+            login();
+        }
+    }
+    function login() {
+        console.log("hi");
+    }
+
+    function mykeydown() {
+        var obj = document.getElementById('input1');
+        obj.style.background='red';
+    }
+
+    var obj1 = document.getElementById('form1');
+    obj1.onkeydown = function() { // window.onkeydown을 하면 window 내의 어느 곳이던 누르면 반응한다.
+        key_form.key_code.value = event.keyCode;
+        key_form.char_code.value = String.fromCharCode(event.keyCode); 
+        // fromCharCode
+        // UTF-16 코드 유닛의 시퀀스로부터 문자열을 생성해 반환합니다.
+    }
+</script>
+</html>
