@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JQuery cdn -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <title>find_children</title>
+</head>
+<body>
+
+    <!-- find
+        요소의 하위에 속한 요소들을 
+        selector, Jquery 객체, 
+        자바스크립트 객체를 통해서 가져온다. -->
+    <ul class="level-1">
+        <li class="item-i">I</li>
+        <li class="item-ii">II
+          <ul class="level-2">
+            <li class="item-a">A</li>
+            <li class="item-b">B
+              <ul class="level-3">
+                <li class="item-1">1</li>
+                <li class="item-2">2</li>
+                <li class="item-3">3</li>
+              </ul>
+            </li>
+            <li class="item-c">C</li>
+          </ul>
+        </li>
+        <li class="item-iii">III</li>
+    </ul>
+</body>
+
+<script>
+//item-ii class에서 li태그를 찾아서 배경색을 빨간색으로 변경해줘
+$( "li.item-ii" ).find( "li" ).css( "background-color", "red" );
+
+// 모든 li 태그(배열)중에서 item-ii안에 있는 li태그를 찾음
+var allListElements = $( "li" ); 
+$( "ul.level-3" ).find( allListElements ).css( "background-color", "blue" );
+
+// find() 함수는 선택된 태그(객체)의 모든 자식태그들을 검색해서 찾는 것
+$( "ul.level-3" ).find( "li" ).css( "background-color", "green" );
+
+// children() 함수는 선택된 태그(객체)의 바로 1단계 아래 자식을 찾는것.
+$( "ul.level-1" ).children( "li" ).css( "background-color", "orange" );
+
+
+</script>
+</html>
