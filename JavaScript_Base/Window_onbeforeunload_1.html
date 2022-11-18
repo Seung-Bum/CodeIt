@@ -14,6 +14,8 @@
 window.onbeforeunload = function() {
 
     // 종료전에 해야할 작업들을 정의하고 사용자에게 정말 작업을 끝낼건지 확인함
+    
+    event.preventDefault(); // 사용하지 않으려면 preventDefault 사용
 
     var message = '작성중인 내용이 있습니다. 정말 페이지를 떠나실 건 가요?';
     var work = true;

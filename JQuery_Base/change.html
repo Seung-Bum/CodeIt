@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <!-- JQuery cdn -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <select id="testChange">
+        <option value="">김길동</option>
+        <option value="홍길동">홍길동</option>
+        <option value="최철수">최철수</option>
+        <option value="나길동">나길동</option>
+    </select>
+
+    <br><input type="text" placeholder='아무거나 입력 후 Enter'>
+
+</body>
+<script>
+
+    // 제이쿼리 change 함수
+    $("#testChange").change(function(){
+        // 변경된 값으로 비교 후 alert 표출
+        if($(this).val() == ""){
+            alert("저의 이름은 길길동 입니다.");
+        } else if($(this).val() == "홍길동"){
+            alert("저는 "+$(this).val()+"입니다.");
+        } else if($(this).val() == "최철수"){
+            alert("저는 "+$(this).val()+"입니다.");
+        } else if($(this).val() == "나길동"){
+            alert("저는 "+$(this).val()+"입니다.");
+        }
+    });
+    
+
+    $(document).ready(function(){
+        $("input").change(function(){
+        alert("입력완료");
+        });
+    });
+
+</script>
+</html>
