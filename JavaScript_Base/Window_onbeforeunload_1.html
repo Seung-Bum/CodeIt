@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>Document</title>
+</head>
+<script>
+    // 페이지 새로고침, 페이지닫기시 작성중 상태면 한번 더 확인합니다.
+    // 이전에 일부 브라우저는 사용자에게 표시하는 확인 대화 상자의 메시지를 정의할 수 있었습니다. 
+    // 하지만 현재 대부분의 브라우저는 메시지 정의할 수 없다는 것입니다.
+window.onbeforeunload = function() {
+
+    // 종료전에 해야할 작업들을 정의하고 사용자에게 정말 작업을 끝낼건지 확인함
+
+    var message = '작성중인 내용이 있습니다. 정말 페이지를 떠나실 건 가요?';
+    var work = true;
+    if (work) { // 작업중 체크
+        console.log('in');
+        return message; // 메시지는 변경할 수 없다.
+    };
+}
+</script>
+<body>
+<h1>onbeforeunload</h1>
+<h2>종료전에 해야할 작업들을 정의하고 사용자에게 정말 작업을 끝낼건지 확인함</h2>
+</body>
+
+</html>
