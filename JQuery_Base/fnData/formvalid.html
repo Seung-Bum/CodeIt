@@ -1,0 +1,34 @@
+<html>
+    <head>
+    <script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+    <meta http-equiv="Context-Type" context="text/html;charset=UTF-8" />
+       
+    <script type="text/javascript">
+
+		$(function(){
+			//form submit할 버튼이벤트에 validFormNow()호출
+			$("#search").click(function(){
+				//검증이 true일 경우에만 form submit
+                $("#searchForm").valid(
+                    [ [/^[\d]{4,4}$/,'네자리 숫자를 입력해주세요'], [/^.{3,8}$/,'3글자에서 8글자사이로 입력해주세요'] ]
+                );
+				if($("#searchForm").validFormNow()){
+                    alert("true");
+					//$("#searchForm").submit();
+				};
+			});
+		});
+
+    </script>
+    </head>
+    
+    <body>
+        <form name="searchForm" id="searchForm">
+            숫자 : <input type="text" id="num" data-valid="[[/^[\d]{4,4}$/,'네자리 숫자를 입력해주세요']]"/><br>
+	        문자 : <input type="text" id="char" data-valid="[[/^.{3,8}$/,'3글자에서 8글자사이로 입력해주세요']]"/><br>
+            <button id="search">조회</button>
+        </form>
+    </body>
+</html>
+

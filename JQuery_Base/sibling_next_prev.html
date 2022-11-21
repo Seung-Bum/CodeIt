@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sibling next prev</title>
+
+    <!-- JQuery cdn -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script>
+        function init(){
+            // 선텍된 요소의 모든 형제노드 선택
+            //$(".me").siblings().css({"border": "2px solid red"}); 
+
+            // 선택된 요소의 다음 요소
+            //$(".me").next().css({"border": "2px solid red"});
+
+            // 선택된 요소의 이전 요소
+            $(".me").prev().css({"border": "2px solid red"});
+        }
+    </script>
+
+</head>
+<body onload = "javascript:init()">
+    <ul>ul (부모)
+        <li>li (형제)</li>
+        <li>li (형제)</li>
+        <li class="me">li (나)</li>
+        <li>li (형제)</li>
+        <li>li (형제)</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- JQuery cdn -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        // https://zero-gravity.tistory.com/311
+        function init(){
+            $(document).ready(function(e){
+                genRowspan("row");
+            });
+            
+            function genRowspan(className){
+                $("." + className).each(function() { // row라는 이름의 classname을 모두 찾음
+                    var rows = $("." + className + ":contains('" + $(this).text() + "')");
+                    if (rows.length > 1) {
+                        rows.eq(0).attr("rowspan", rows.length); // rowspan, 2 - rows의 길이만큼 rowspan 설정값 추가
+                        rows.not(":eq(0)").remove(); // :eq(0)가 아닌 모든값 삭제 (첫번째 값빼고 모두 삭제 하는듯함)
+                    }
+                });
+            }
+        }
+    </script>
+</head>
+<body onload = "javascript:init()">
+    <h1>유동적인 테이블 셀병합</h1>
+    <table>
+        <tr>
+            <th>밥류</th>
+            <th>면류</th>
+            <th>분식류</th>
+        </tr>
+        <tr>
+            <td>김밥</td>
+            <td>라면</td>
+            <td class="row">떡볶이</td>
+        </tr>
+        <tr>
+            <td>주먹밥</td>
+            <td>우동</td>
+            <td class="row">떡볶이</td>  
+        </tr>
+    </table>
+</body>
+</html>
