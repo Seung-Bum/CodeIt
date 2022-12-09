@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        <a href="javascript:;"></a> 의 활용예
+        - 자바스크립트 함수 사용
+        - 링크자체가 아무것도하지 않기를 원할때
+    -->
+    <script>
+        function doSomething() {
+          alert("hello")
+        }
+    </script>
+    <a href="javascript:doSomething();">click me1</a>
+    <a href="javascript:alert('Hello');">click me2</a>
+    <a href="" onclick="alert('Hello'); return false;">click me3</a>
+    <a href="Javascript: doStuff();">link</a> <!-- 아무반응 없음 -->
+    <a href="Http://WWW.stackoverflow.com">Link to the website opened in different tab</a>
+    <a href="#MyDive">Link to the div in the page(look at the chaneged url)</a>
+    <a href="javascript:;">Nothing happens if there is no javaScript to render</a> <!-- 내가 알아보려고 했던것  반응 없음-->
+    <a href="javascript:void(0);">click me4</a> <!-- 아무반응 없음 -->
+
+</body>
+</html>
