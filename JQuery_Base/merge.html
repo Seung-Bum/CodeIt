@@ -17,7 +17,11 @@
         var a = [1,2,3]
         var b = ["a", "b", "c"]
         var c = $.merge(a, b)
-        console.log(c)
+        console.log("c : " + c) // c : 1,2,3,a,b,c
+        console.log("------------------------------")
+        console.log("a : " + a) // a : 1,2,3,a,b,c
+        console.log("------------------------------")
+        console.log("b : " + b) // b : a,b,c
     </script>
 </body>
 </html>
